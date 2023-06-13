@@ -24,21 +24,22 @@ The TalkToType plugin for Obsidian enables you to transcribe audio recordings in
 
 ## Usage
 
-1. Open Obsidian.
+### To transcribe all recordings:
+
+1. Open the command palette by pressing `Ctrl/Cmd + P` or by navigating to the "Commands" option in the top menu.
+2. Type "Transcribe All Recordings" and select the corresponding command from the list.
+3. The plugin will process all the audio recordings in your vault and add the transcribed text as respective notes.
+
+### To transcribe the current recording:
+
+1. Open the recording your wish to transcribe.
 2. Open the command palette by pressing `Ctrl/Cmd + P` or by navigating to the "Commands" option in the top menu.
 3. Type "Transcribe Current Recording" and select the corresponding command from the list.
-4. The plugin will transcribe the current audio recording and add it as a new note in your vault.
+4. The plugin will process the opened audio recording and add the transcribed text as respective notes.
 
-To transcribe all recordings:
+### To transcribe and summarize the current recording:
 
-1. Open Obsidian.
-2. Open the command palette by pressing `Ctrl/Cmd + P` or by navigating to the "Commands" option in the top menu.
-3. Type "Transcribe All Recordings" and select the corresponding command from the list.
-4. The plugin will process all the audio recordings in your vault and add the transcribed text as respective notes.
-
-To transcribe and summarize the current recording:
-
-1. Open Obsidian.
+1. Open the recording your wish to transcribe.
 2. Open the command palette by pressing `Ctrl/Cmd + P` or by navigating to the "Commands" option in the top menu.
 3. Type "Transcribe and Summarize Current Recording" and select the corresponding command from the list.
 4. The plugin will transcribe the current audio recording, summarize the content, and add it as a new note in your vault.
