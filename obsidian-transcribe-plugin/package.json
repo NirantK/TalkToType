@@ -1,5 +1,5 @@
 {
-	"name": "voice-liner-plugin",
+	"name": "talk-to-type-plugin",
 	"version": "0.0.1",
 	"description": "This plugin allows you to transcribe audio recorded in Obsidian insert it into your notes.",
 	"main": "main.js",

@@ -11,20 +11,20 @@ import { LLMChain } from "langchain/chains";
 import { OpenAI } from "langchain/llms/openai";
 import { PromptTemplate } from "langchain/prompts";
 
-interface VoiceLinerPluginSettings {
+interface TalkToTypePluginSettings {
 	openAIKey: string;
 }
 
-const DEFAULT_SETTINGS: VoiceLinerPluginSettings = {
+const DEFAULT_SETTINGS: TalkToTypePluginSettings = {
 	openAIKey: "default",
 };
 
-export default class VoiceLiner extends Plugin {
-	settings: VoiceLinerPluginSettings;
+export default class TalkToType extends Plugin {
+	settings: TalkToTypePluginSettings;
 
 	async onload() {
 		await this.loadSettings();
-		console.log("loading VoiceLiner");
+		console.log("Loading TalkToType");
 
 		this.addCommand({
 			id: "transcribe-current-recording",
@@ -45,8 +45,8 @@ export default class VoiceLiner extends Plugin {
 		});
 
 		// This adds a settings tab so the user can configure various aspects of
-		// VoiceLiner plugin as Open AI Key for Transcribing.
-		this.addSettingTab(new VoiceLinerSettingTab(this.app, this));
+		// TalkToType plugin as Open AI Key for Transcribing.
+		this.addSettingTab(new TalkToTypeSettingTab(this.app, this));
 	}
 
 	async onunload() { }
@@ -209,10 +209,10 @@ export default class VoiceLiner extends Plugin {
 	}
 }
 
-class VoiceLinerSettingTab extends PluginSettingTab {
-	plugin: VoiceLiner;
+class TalkToTypeSettingTab extends PluginSettingTab {
+	plugin: TalkToType;
 
-	constructor(app: App, plugin: VoiceLiner) {
+	constructor(app: App, plugin: TalkToType) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -222,7 +222,7 @@ class VoiceLinerSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl("h2", { text: "Settings for Voice Liner" });
+		containerEl.createEl("h2", { text: "Settings for TalkToType" });
 
 		new Setting(containerEl)
 			.setName("1. Open AI Key")
