@@ -20,7 +20,7 @@ The TalkToType plugin for Obsidian enables you to transcribe audio recordings in
 4. Launch Obsidian.
 5. Open the settings and navigate to the "Community Plugins" tab.
 6. Enable the "TalkToType" plugin.
-7. Configure the plugin settings according to your preferences.
+7. Add your [OpenAI API key](https://platform.openai.com/account/api-keys) to the plugin settings.
 
 ## Usage
 
