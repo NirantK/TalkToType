@@ -1,8 +1,3 @@
-# Talk to Type for Obsidian
-
-This is a plugin for [Obsidian](https://obsidian.md) that allows you to transcribe audio files into notes.
-
-
 # TalkToType Plugin for Obsidian
 
 The TalkToType plugin for Obsidian enables you to transcribe audio recordings into text and add them as notes in your Obsidian vault. Additionally, you can summarize your recordings and add it as a note.
