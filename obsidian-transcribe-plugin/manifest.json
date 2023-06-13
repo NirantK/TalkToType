@@ -1,0 +1,10 @@
+{
+	"id": "voice-liner-plugin",
+	"name": "Voice Liner Plugin",
+	"version": "0.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "This plugin allows you to transcribe audio recorded in Obsidian insert it into your notes.",
+	"author": "Nirant Kasliwal",
+	"authorUrl": "https://nirantk.com",
+	"isDesktopOnly": false
+}
