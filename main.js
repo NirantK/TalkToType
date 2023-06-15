@@ -16431,6 +16431,8 @@ var TalkToType = class extends import_obsidian.Plugin {
   async onload() {
     await this.loadSettings();
     console.log("Loading TalkToType");
+    this.statusBarItemEl = this.addStatusBarItem();
+    this.statusBarItemEl.setText("TalkToType Loaded \u2705");
     this.addCommand({
       id: "transcribe-current-recording",
       name: "Transcribe Current Recording",
@@ -16458,6 +16460,7 @@ var TalkToType = class extends import_obsidian.Plugin {
   }
   async summarize(transcribed_text) {
     console.log("Summarizing the text:", transcribed_text);
+    this.statusBarItemEl.setText("TalkToType: \u2705 Summarizing the Text..");
     const template = `Assistant is a large language model trained by OpenAI.
 
 		Assistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.
@@ -16481,6 +16484,7 @@ var TalkToType = class extends import_obsidian.Plugin {
   }
   async transcribeAudio(fileBinary, summarize = false) {
     console.log("Transcribing audio...");
+    this.statusBarItemEl.setText("TalkToType: \u2705 Transcribing the Recording..");
     const endpoint = "https://api.openai.com/v1/audio/transcriptions";
     const apiKey = this.settings.openAIKey;
     if (apiKey === "default") {
@@ -16500,6 +16504,7 @@ var TalkToType = class extends import_obsidian.Plugin {
       if (response.ok) {
         const result = await response.json();
         console.log("Transcription complete:", result);
+        this.statusBarItemEl.setText("TalkToType: \u2705 Transcription Complete..");
         if (result.text) {
           if (summarize) {
             this.summarize(result.text);
@@ -16508,6 +16513,7 @@ var TalkToType = class extends import_obsidian.Plugin {
           }
         }
       } else {
+        this.statusBarItemEl.setText("TalkToType: \u274C Transcription Failed..");
         console.error(
           "Transcription failed:",
           response.status,
@@ -16524,6 +16530,7 @@ var TalkToType = class extends import_obsidian.Plugin {
         const fileBinary = await this.app.vault.readBinary(activeFile);
         this.transcribeAudio(fileBinary, false);
       } catch (error) {
+        this.statusBarItemEl.setText("TalkToType: \u274C Error processing file");
         console.error(`Error processing file: ${activeFile.name}`, error);
       }
     }
@@ -16536,6 +16543,7 @@ var TalkToType = class extends import_obsidian.Plugin {
         const fileBinary = await this.app.vault.readBinary(activeFile);
         this.transcribeAudio(fileBinary, true);
       } catch (error) {
+        this.statusBarItemEl.setText("TalkToType: \u274C Error processing file");
         console.error(`Error processing file: ${activeFile.name}`, error);
       }
     }
@@ -16547,9 +16555,11 @@ var TalkToType = class extends import_obsidian.Plugin {
       if (extension === "webm") {
         console.log("found webm file");
         try {
+          this.statusBarItemEl.setText("TalkToType: \u2705 Processing the Recording of " + file.name + "..");
           const fileBinary = await this.app.vault.readBinary(file);
           this.transcribeAudio(fileBinary);
         } catch (error) {
+          this.statusBarItemEl.setText("TalkToType: \u274C Error processing file" + file.name);
           console.error(`Error processing file: ${file.name}`, error);
         }
       }
@@ -16564,14 +16574,19 @@ var TalkToType = class extends import_obsidian.Plugin {
     const content = content_body;
     try {
       console.log("Creating Note");
+      this.statusBarItemEl.setText("TalkToType: \u2705 Creating a Note..");
       const newFile = await this.app.vault.create(`${title}.md`, content);
       if (newFile instanceof import_obsidian.TFile) {
+        this.statusBarItemEl.setText("TalkToType: \u2705 Note Created..");
         new import_obsidian.Notice(`Note "${newFile.basename}" created successfully.`);
+        this.statusBarItemEl.setText("TalkToType: \u2705 Ready..");
       } else {
+        this.statusBarItemEl.setText("TalkToType: \u274C Note Creation Failed..");
         new import_obsidian.Notice("Failed to create the note.");
       }
       console.log("note created");
     } catch (error) {
+      this.statusBarItemEl.setText("TalkToType: \u274C Error creating a Note..");
       new import_obsidian.Notice("An error occurred while creating the note.");
       console.error(error);
     }
