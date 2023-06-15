@@ -27,6 +27,8 @@ The TalkToType plugin for Obsidian enables you to transcribe audio recordings in
 
 ## Usage
 
+![Summarize](summarize.gif)
+
 ### To transcribe all recordings:
 
 1. Open the command palette by pressing `Ctrl/Cmd + P` or by navigating to the "Commands" option in the top menu.
