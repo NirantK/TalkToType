@@ -16443,7 +16443,7 @@ var TalkToType = class extends import_obsidian.Plugin {
     });
     this.addCommand({
       id: "transcribe-and-summarize-current-recording",
-      name: "Transcribe and Summarize Current Recording",
+      name: "Summarize Current Recording",
       callback: this.processAndSummarizeCurrentRecording.bind(this)
     });
     this.addSettingTab(new TalkToTypeSettingTab(this.app, this));
