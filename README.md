@@ -27,7 +27,8 @@ The TalkToType plugin for Obsidian enables you to transcribe audio recordings in
 
 ## Usage
 
-![Summarize](summarize.gif)
+<!-- ![Summarize](summarize.gif) -->
+<iframe src="https://giphy.com/embed/Ka7yUKeHFPRoguVxno" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ### To transcribe all recordings:
 
